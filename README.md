@@ -33,18 +33,18 @@
   - [ ] API를 호출할 때, 잘못된 요청이 들어오면 HTTP 400 상태의 `{"reason": 실제사유}`을 응답한다.
   - [ ] API에 대한 실패 상황 통합 테스트 코드 작성
   - [ ] 존재하지 않는 API 호출 시, HTTP 404 상태의 `{"reason": 실제사유}`을 응답한다.
-- [ ] Spring MVC 아키텍처와 Restful API를 준수하여 개발한다. (8점)
-  - [ ] `@RestController`, `@Service`, `@Repository`를 이용하여 개발한다.
-  - [ ] HTTP Method와 URI를 적절하게 사용하여 개발한다.
-- [ ] Clean Code를 준수하여 개발한다. (8점)
-  - [ ] 코드 스타일을 일관되고 명확하게 작성한다.
-  - [ ] 메소드와 클래스의 역할을 명확하게 작성한다.
+- [x] Spring MVC 아키텍처와 Restful API를 준수하여 개발한다. (8점)
+  - [x] `@RestController`, `@Service`, `@Repository`를 이용하여 개발한다.
+  - [x] HTTP Method와 URI를 적절하게 사용하여 개발한다.
+- [x] Clean Code를 준수하여 개발한다. (8점)
+  - [x] 코드 스타일을 일관되고 명확하게 작성한다.
+  - [x] 메소드와 클래스의 역할을 명확하게 작성한다.
 
 ### 2.2. 기본 문제 (50점)
 
 - [ ] user 등록 API 구현 (8점)
-  - [ ] `/users` API를 호출하면, `{"id": ?}`을 응답한다.
-  - [ ] `/users` API에 대한 통합 테스트 코드 작성
+  - [x] `/users` API를 호출하면, `{"id": ?}`을 응답한다.
+- [x] `/users` API에 대한 통합 테스트 코드 작성
 - [ ] user 조회 API 구현 (8점)
   - [ ] `/users/{id}` API를 호출하면, `{"id": ?, "name": "?"}`을 응답한다.
   - [ ] `/users/{id}` API에 대한 통합 테스트 코드 작성

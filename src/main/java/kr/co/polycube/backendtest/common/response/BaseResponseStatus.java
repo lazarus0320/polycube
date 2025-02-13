@@ -18,7 +18,7 @@ public enum BaseResponseStatus {
 	/*
 	 * 404 NOT_FOUND: 리소스를 찾을 수 없음
 	 */
-	NOT_FOUND_DATA(HttpStatus.NOT_FOUND, false, "데이터를 찾을 수 없습니다."),
+	NOT_FOUND_DATA(HttpStatus.NOT_FOUND, false, "리소스를 찾을 수 없습니다."),
 	/*
 	 * 405 METHOD_NOT_ALLOWED: 허용되지 않은 Request Method 호출
 	 */
