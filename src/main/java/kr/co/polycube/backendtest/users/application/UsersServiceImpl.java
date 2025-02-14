@@ -9,6 +9,8 @@ import kr.co.polycube.backendtest.users.dto.AddUserRequestDto;
 import kr.co.polycube.backendtest.users.dto.AddUserResponseDto;
 import kr.co.polycube.backendtest.users.dto.GetUserDetailResponseDto;
 import kr.co.polycube.backendtest.users.dto.in.GetUserDetailRequestDto;
+import kr.co.polycube.backendtest.users.dto.in.UpdateUserRequestDto;
+import kr.co.polycube.backendtest.users.dto.out.UpdateUserResponseDto;
 import kr.co.polycube.backendtest.users.infrastructure.UsersRepository;
 import kr.co.polycube.backendtest.users.mapper.UsersMapper;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +27,7 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public AddUserResponseDto addUser(AddUserRequestDto requestDto) {
 
-		Users newUser = usersMapper.addUsers(requestDto);
+		Users newUser = usersMapper.toEntity(requestDto);
 		usersRepository.save(newUser);
 
 		return AddUserResponseDto.builder()
@@ -39,6 +41,17 @@ public class UsersServiceImpl implements UsersService {
 		Users user = usersRepository.findById(requestDto.getId())
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NOT_FOUND_DATA));
 
-		return usersMapper.toDto(user);
+		return usersMapper.toGetUserDetailDto(user);
+	}
+
+	@Override
+	public UpdateUserResponseDto updateUser(UpdateUserRequestDto requestDto) {
+
+		Users user = usersRepository.findById(requestDto.getId())
+			.orElseThrow(() -> new BaseException(BaseResponseStatus.NOT_FOUND_DATA));
+
+		user.update(requestDto);
+
+		return usersMapper.toUpdateUserDto(user);
 	}
 }

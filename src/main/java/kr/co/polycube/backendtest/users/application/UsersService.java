@@ -4,6 +4,8 @@ import kr.co.polycube.backendtest.users.dto.AddUserRequestDto;
 import kr.co.polycube.backendtest.users.dto.AddUserResponseDto;
 import kr.co.polycube.backendtest.users.dto.GetUserDetailResponseDto;
 import kr.co.polycube.backendtest.users.dto.in.GetUserDetailRequestDto;
+import kr.co.polycube.backendtest.users.dto.in.UpdateUserRequestDto;
+import kr.co.polycube.backendtest.users.dto.out.UpdateUserResponseDto;
 
 public interface UsersService {
 	// 유저 등록
@@ -11,4 +13,6 @@ public interface UsersService {
 
 	// 유저 상세 조회
 	GetUserDetailResponseDto getUserDetail(GetUserDetailRequestDto requestDto);
+
+	UpdateUserResponseDto updateUser(UpdateUserRequestDto dto);
 }
