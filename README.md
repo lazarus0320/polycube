@@ -48,12 +48,12 @@
 - [x] user 조회 API 구현 (8점)
   - [x] `/users/{id}` API를 호출하면, `{"id": ?, "name": "?"}`을 응답한다.
   - [x] `/users/{id}` API에 대한 통합 테스트 코드 작성
-- [ ] user 수정 API 구현 (8점)
-  - [ ] `/users/{id}` API를 호출하면, `{"id": ?, "name": "?"}`을 응답한다.
-  - [ ] `/users/{id}` API에 대한 통합 테스트 코드 작성
-- [ ] 필터 구현 (12점)
-  - [ ] URL에 `? & = : //`를 제외한 특수문자가 포함되어 있을경우 접속을 차단하는 Filter 구현한다.
-  - [ ] `/users/{id}?name=test!!` API 호출에 대한 통합 테스트 코드 작성
+- [x] user 수정 API 구현 (8점)
+  - [x] `/users/{id}` API를 호출하면, `{"id": ?, "name": "?"}`을 응답한다.
+  - [x] `/users/{id}` API에 대한 통합 테스트 코드 작성
+- [x] 필터 구현 (12점)
+  - [x] URL에 `? & = : //`를 제외한 특수문자가 포함되어 있을경우 접속을 차단하는 Filter 구현한다.
+  - [x] `/users/{id}?name=test!!` API 호출에 대한 통합 테스트 코드 작성
 - [ ] Spring AOP를 활용한 로깅 구현 (14점)
   - [ ] user 등록, 조회, 수정 API에 대해 Request시 Console에 Client Agent를 출력한다.
 
@@ -66,8 +66,8 @@ id,name
 ### 2.3. 구현 문제 (30점)
 
 #### 로또 번호 발급 API 구현 (10점)
-- [ ] `POST /lottos` API를 호출하면, `{"numbers": [?, ?, ?, ?, ?, ?]}`을 응답한다.
-- [ ] `POST /lottos` API에 대한 통합 테스트 코드 작성
+- [x] `POST /lottos` API를 호출하면, `{"numbers": [?, ?, ?, ?, ?, ?]}`을 응답한다.
+- [x] `POST /lottos` API에 대한 통합 테스트 코드 작성
 
 ##### Request
 
