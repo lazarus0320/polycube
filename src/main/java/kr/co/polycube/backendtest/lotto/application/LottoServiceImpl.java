@@ -4,6 +4,7 @@ import java.security.SecureRandom;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.polycube.backendtest.lotto.domain.Lotto;
 import kr.co.polycube.backendtest.lotto.dto.out.AddLottoResponseDto;
@@ -19,6 +20,7 @@ public class LottoServiceImpl implements LottoService {
 	private final LottoMapper lottoMapper;
 
 	@Override
+	@Transactional
 	public AddLottoResponseDto addLotto() {
 
 		SecureRandom secureRandom = new SecureRandom();

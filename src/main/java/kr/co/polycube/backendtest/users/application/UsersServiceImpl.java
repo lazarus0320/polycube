@@ -1,6 +1,7 @@
 package kr.co.polycube.backendtest.users.application;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.polycube.backendtest.common.error.BaseException;
 import kr.co.polycube.backendtest.common.response.BaseResponseStatus;
@@ -19,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 @RequiredArgsConstructor
+@Transactional
 public class UsersServiceImpl implements UsersService {
 
 	private final UsersRepository usersRepository;
@@ -36,6 +38,7 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public GetUserDetailResponseDto getUserDetail(GetUserDetailRequestDto requestDto) {
 
 		Users user = usersRepository.findById(requestDto.getId())
