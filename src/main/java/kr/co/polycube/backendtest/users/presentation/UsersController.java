@@ -3,6 +3,7 @@ package kr.co.polycube.backendtest.users.presentation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,7 +32,7 @@ public class UsersController {
 
 	@Operation(summary = "유저 등록")
 	@PostMapping
-	public BaseResponse<AddUserResponseDto> getUser(AddUserRequestVo requestVo) {
+	public BaseResponse<AddUserResponseDto> getUser(@RequestBody AddUserRequestVo requestVo) {
 
 		return new BaseResponse<>(
 			usersService.addUser(usersMapper.toDto(requestVo))
