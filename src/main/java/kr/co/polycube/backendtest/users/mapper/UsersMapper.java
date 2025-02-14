@@ -3,8 +3,8 @@ package kr.co.polycube.backendtest.users.mapper;
 import org.springframework.stereotype.Component;
 
 import kr.co.polycube.backendtest.users.domain.Users;
-import kr.co.polycube.backendtest.users.dto.AddUserRequestDto;
-import kr.co.polycube.backendtest.users.dto.GetUserDetailResponseDto;
+import kr.co.polycube.backendtest.users.dto.in.AddUserRequestDto;
+import kr.co.polycube.backendtest.users.dto.out.GetUserDetailResponseDto;
 import kr.co.polycube.backendtest.users.dto.in.GetUserDetailRequestDto;
 import kr.co.polycube.backendtest.users.dto.in.UpdateUserRequestDto;
 import kr.co.polycube.backendtest.users.dto.out.UpdateUserResponseDto;
