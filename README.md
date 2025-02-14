@@ -29,10 +29,10 @@
 
 ### 2.1. 공통 (20점)
 
-- [ ] `@ControllerAdvice`, `@ExceptionHandler`를 이용하여, 잘못된 요청에 대한 응답을 처리한다. (4점)
-  - [ ] API를 호출할 때, 잘못된 요청이 들어오면 HTTP 400 상태의 `{"reason": 실제사유}`을 응답한다.
-  - [ ] API에 대한 실패 상황 통합 테스트 코드 작성
-  - [ ] 존재하지 않는 API 호출 시, HTTP 404 상태의 `{"reason": 실제사유}`을 응답한다.
+- [x] `@ControllerAdvice`, `@ExceptionHandler`를 이용하여, 잘못된 요청에 대한 응답을 처리한다. (4점)
+  - [x] API를 호출할 때, 잘못된 요청이 들어오면 HTTP 400 상태의 `{"reason": 실제사유}`을 응답한다.
+  - [x] API에 대한 실패 상황 통합 테스트 코드 작성
+  - [x] 존재하지 않는 API 호출 시, HTTP 404 상태의 `{"reason": 실제사유}`을 응답한다.
 - [x] Spring MVC 아키텍처와 Restful API를 준수하여 개발한다. (8점)
   - [x] `@RestController`, `@Service`, `@Repository`를 이용하여 개발한다.
   - [x] HTTP Method와 URI를 적절하게 사용하여 개발한다.
@@ -54,8 +54,8 @@
 - [x] 필터 구현 (12점)
   - [x] URL에 `? & = : //`를 제외한 특수문자가 포함되어 있을경우 접속을 차단하는 Filter 구현한다.
   - [x] `/users/{id}?name=test!!` API 호출에 대한 통합 테스트 코드 작성
-- [ ] Spring AOP를 활용한 로깅 구현 (14점)
-  - [ ] user 등록, 조회, 수정 API에 대해 Request시 Console에 Client Agent를 출력한다.
+- [x] Spring AOP를 활용한 로깅 구현 (14점)
+  - [x] user 등록, 조회, 수정 API에 대해 Request시 Console에 Client Agent를 출력한다.
 
 `user` 테이블
 
@@ -86,10 +86,10 @@ curl -X POST -H "Content-Type: application/json" http://localhost:8080/lottos
 #### 로또 번호 당첨자 검수 Batch 구현 (20점)
 그냥 랜덤? secure random?
 - [ ] 랜덤하게 로또 번호를 발급하여, 당첨 번호와 비교하여 당첨자를 검수하는 Batch를 구현한다.
-  - [ ] 당첨자의 등수는 1등, 2등, 3등, 4등, 5등이 있다.
-  - [ ] 당첨자의 등수는 당첨 번호와 일치하는 번호의 개수로 판단한다.
-  - [ ] 당첨자 정보는 `winner` 테이블에 저장한다.
-- [ ] Batch는 매주 일요일 0시에 실행되도록 구현한다.
+  - [x] 당첨자의 등수는 1등, 2등, 3등, 4등, 5등이 있다.
+  - [x] 당첨자의 등수는 당첨 번호와 일치하는 번호의 개수로 판단한다.
+  - [x] 당첨자 정보는 `winner` 테이블에 저장한다.
+- [x] Batch는 매주 일요일 0시에 실행되도록 구현한다.
 - [ ] Batch에 대한 통합 테스트 코드 작성
 
 ##### Input Data
