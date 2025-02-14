@@ -12,6 +12,7 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public ResponseEntity<Map<String, String>> handleNoHandlerFoundException(NoHandlerFoundException ex) {
+
 		return ResponseEntity
 			.status(404)
 			.body(Map.of("reason", ex.getMessage()));
@@ -19,6 +20,7 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(BaseException.class)
 	public ResponseEntity<Map<String, String>> handleBaseException(BaseException ex) {
+
 		return ResponseEntity
 			.status(ex.getStatus().getHttpStatusCode().value())
 			.body(Map.of("reason", ex.getStatus().getMessage()));

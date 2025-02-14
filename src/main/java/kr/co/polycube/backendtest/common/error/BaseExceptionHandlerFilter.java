@@ -28,9 +28,11 @@ public class BaseExceptionHandlerFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
 		FilterChain filterChain) throws ServletException, IOException {
+
 		try {
 			filterChain.doFilter(request, response);
-		} catch (BaseException e) {
+		}
+		catch (BaseException e) {
 			log.error("BaseException -> {}({})", e.getStatus(), e.getStatus().getMessage(), e);
 			setErrorResponse(response, e);
 		}
@@ -38,6 +40,7 @@ public class BaseExceptionHandlerFilter extends OncePerRequestFilter {
 
 	// Error를 Json으로 바꿔서 클라이언트에 전달
 	private void setErrorResponse(HttpServletResponse response, BaseException be) throws IOException {
+
 		// 직렬화 하기위한 object mapper
 		ObjectMapper objectMapper = new ObjectMapper();
 
@@ -49,7 +52,8 @@ public class BaseExceptionHandlerFilter extends OncePerRequestFilter {
 
 		try {
 			response.getWriter().write(objectMapper.writeValueAsString(baseResponse));
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

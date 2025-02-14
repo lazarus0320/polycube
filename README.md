@@ -45,9 +45,9 @@
 - [x] user 등록 API 구현 (8점)
   - [x] `/users` API를 호출하면, `{"id": ?}`을 응답한다.
 - [x] `/users` API에 대한 통합 테스트 코드 작성
-- [ ] user 조회 API 구현 (8점)
-  - [ ] `/users/{id}` API를 호출하면, `{"id": ?, "name": "?"}`을 응답한다.
-  - [ ] `/users/{id}` API에 대한 통합 테스트 코드 작성
+- [x] user 조회 API 구현 (8점)
+  - [x] `/users/{id}` API를 호출하면, `{"id": ?, "name": "?"}`을 응답한다.
+  - [x] `/users/{id}` API에 대한 통합 테스트 코드 작성
 - [ ] user 수정 API 구현 (8점)
   - [ ] `/users/{id}` API를 호출하면, `{"id": ?, "name": "?"}`을 응답한다.
   - [ ] `/users/{id}` API에 대한 통합 테스트 코드 작성

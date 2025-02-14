@@ -1,34 +1,48 @@
 package kr.co.polycube.backendtest.common.error;
 
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
-import kr.co.polycube.backendtest.common.response.BaseResponse;
-import kr.co.polycube.backendtest.common.response.BaseResponseStatus;
 import lombok.extern.slf4j.Slf4j;
 
 @RestControllerAdvice
 @Slf4j
 public class BaseExceptionHandler {
 
+	static final String ERROR_KEY = "reason";
+
 	@ExceptionHandler(BaseException.class)
-	public ResponseEntity<BaseResponse<Void>> BaseError(BaseException e) {
-		// BaseException의 BaseResponseStatus를 가져와서 BaseResponse를 만들어서 return
-		BaseResponse<Void> response = new BaseResponse<>(e.getStatus());
+	public ResponseEntity<Map<String, String>> handleBaseException(BaseException e) {
+
 		log.error("BaseException -> {} {})", e.getStatus(), e.getStatus().getMessage(), e);
-		return new ResponseEntity<>(response, response.httpStatus());
+
+		return ResponseEntity
+			.status(HttpStatus.NOT_FOUND)
+			.body(Map.of(ERROR_KEY, e.getStatus().getMessage()));
 	}
 
-	// 런타임 에러
+	@ExceptionHandler(NoHandlerFoundException.class)
+	public ResponseEntity<Map<String, String>> handleNoHandlerFoundException(NoHandlerFoundException e) {
+
+		log.error("NoHandlerFoundException: ", e);
+
+		return ResponseEntity
+			.status(HttpStatus.BAD_REQUEST)
+			.body(Map.of(ERROR_KEY, e.getMessage()));
+	}
+
 	@ExceptionHandler(RuntimeException.class)
-	protected ResponseEntity<BaseResponse<Void>> handleRuntimeException(RuntimeException e) {
-		// BaseException으로 잡히지 않은 에러는 해당 에러로 처리해줌
-		BaseResponse<Void> response = new BaseResponse<>(BaseResponseStatus.INTERNAL_SERVER_ERROR);
+	public ResponseEntity<Map<String, String>> handleRuntimeException(RuntimeException e) {
+
 		log.error("RuntimeException: ", e);
-		for (StackTraceElement s : e.getStackTrace()) {
-			System.out.println(s);
-		}
-		return new ResponseEntity<>(response, response.httpStatus());
+
+		return ResponseEntity
+			.status(HttpStatus.INTERNAL_SERVER_ERROR)
+			.body(Map.of(ERROR_KEY, e.getMessage()));
 	}
 }

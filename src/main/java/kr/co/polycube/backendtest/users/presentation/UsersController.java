@@ -35,8 +35,8 @@ public class UsersController {
 	public BaseResponse<AddUserResponseDto> getUser(@RequestBody AddUserRequestVo requestVo) {
 
 		return new BaseResponse<>(
-			usersService.addUser(usersMapper.toDto(requestVo))
-		);
+			usersService.addUser(usersMapper.toDto(requestVo)
+		));
 	}
 
 	@Operation(summary = "유저 상세 조회", description = "유저 ID, Name 상세 조회")

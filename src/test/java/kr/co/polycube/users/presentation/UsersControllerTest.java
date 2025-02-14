@@ -1,5 +1,6 @@
 package kr.co.polycube.users.presentation;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -43,5 +44,27 @@ class UsersControllerTest {
 			.andDo(print())
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.result.id").exists());
+	}
+
+	@Test
+	void getUserDetail() throws Exception {
+
+		mockMvc.perform(
+			get("/users/{id}", 1L)
+				.contentType(MediaType.APPLICATION_JSON)
+		)
+			.andDo(print())
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.result.id").exists())
+			.andExpect(jsonPath("$.result.name").exists());
+	}
+
+	@Test
+	void getUserDetail_NotFound() throws Exception {
+
+		mockMvc.perform(get("/users/{id}", 999L))
+			.andDo(print())
+			.andExpect(status().isNotFound())
+			.andExpect(jsonPath("$.reason").exists());
 	}
 }
